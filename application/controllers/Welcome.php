@@ -3,36 +3,69 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+	public function __constructor() {
+		parent::__contructor();
+		$this->load->database();
+	
+	}
 
 	public function index(){
-		$this->load->helper('url');
-		$this->load->view('register_equipo_kao');
+		$arrayDeportes = $this->getAllDeportes();
+		$arrayMarcasDeportivas = $this->getAllMarcasDeportivas();
+		$this->load->view('register_equipo_kao', compact('arrayDeportes','arrayMarcasDeportivas'));
 	}
 
-	public function loadDatabaseInfo()
-	{
-		$this->load->database();
-		$test = 'saludos como estan';
-		
-		$query = $this->db->query('SELECT * FROM usuarios');
-		
-		$usuarios = $query->result_array();
-		
-		$this->load->view('welcome_message', compact('test', 'usuarios'));
+	public function saveData() {
+		// If you have post data...
+        if (!empty($_POST)) {
+            $nombres = $this->input->post('nombres');
+            $apellidos = $this->input->post('apellidos');
+            $celular = $this->input->post('celular');
+            $email = $this->input->post('email');
+            $fechaNacimiento = $this->input->post('fechaNacimiento');
+            $radio_sexo = $this->input->post('radio_sexo');
+            $deporteFavorito = $this->input->post('deporteFavorito');
+            $marcaFavorita = $this->input->post('marcaFavorita');
+
+            // Checking if everything is there
+            if ($nombres) {
+                // Loading model
+                $this->load->model('usuarios_Model');
+                $data = array(
+                    'nombres' => $nombres,
+                    'apellidos' => $apellidos,
+                    'celular' => $celular,
+                    'email' => $email,
+                    'fechaNacimiento' => $fechaNacimiento,
+                    'genero' => $radio_sexo,
+                    'deporteFavorito' => $deporteFavorito,
+                    'marcaDepFavorita' => $marcaFavorita,
+                );
+
+                // Calling model
+                $id = $this->usuarios_Model->insert($data);
+            }
+        }
+       
+        redirect('welcome/index');
+       
 	}
+
+	function getAllDeportes() {
+		$this->load->database();
+        $query = $this->db->query('SELECT * FROM deportes');
+		$resultSet = $query->result_array();
+		return $resultSet;
+
+	}
+	
+
+	function getAllMarcasDeportivas() {
+		$this->load->database();
+        $query = $this->db->query('SELECT * FROM marcasdeportivas');
+		$resultSet = $query->result_array();
+		return $resultSet;
+
+    }
+
 }

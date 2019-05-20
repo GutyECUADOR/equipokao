@@ -1,4 +1,5 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 
 
 <!doctype html>
@@ -18,10 +19,10 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
 
     <!-- uikit -->
-    <link rel="stylesheet" href="bower_components/uikit/css/uikit.almost-flat.min.css"/>
+    <link rel="stylesheet" href="bower_components/uikit/css/uikit.almost-flat.css"/>
 
     <!-- altair admin login page -->
-    <link rel="stylesheet" href="assets/css/login_page.min.css" />
+    <link rel="stylesheet" href="assets/css/login_page.css" />
 
 </head>
 <body class="login_page login_page_v2">
@@ -46,15 +47,20 @@
                                     <div class="login_heading">
                                        <h3 class="center-text">Registro #equipoKAO<h3>
                                     </div>
-                                    <form id="regiterForm" autocomplete="off">
+                                    <?php echo form_open('welcome/saveData'); ?>
                                         <div class="uk-form-row">
                                             <label for="nombres">Nombres</label>
-                                            <input class="md-input" type="text" id="nombres" name="nombres" required/>
+                                            <input class="md-input" type="text" id="nombres" name="nombres"/>
 										</div>
 
 										<div class="uk-form-row">
                                             <label for="apellidos">Apellidos</label>
                                             <input class="md-input" type="text" id="apellidos" name="apellidos" required/>
+                                        </div>
+
+                                        <div class="uk-form-row">
+                                            <label for="celular">Celular</label>
+                                            <input class="md-input" type="text" id="celular" name="celular" required/>
                                         </div>
 										
 										<div class="uk-form-row">
@@ -70,11 +76,11 @@
 										<div class="uk-form-row">
                                             <label for="genero">Sexo: </label>
 											<span class="icheck-inline">
-												<input type="radio" name="radio_sexo" id="radio_masculino" data-md-icheck required/>
+												<input type="radio" value="M" name="radio_sexo" id="radio_masculino" data-md-icheck checked required/>
 												<label for="radio_masculino" class="inline-label">Masculino</label>
 											</span>
 											<span class="icheck-inline">
-												<input type="radio" name="radio_sexo" id="radio_femenino" data-md-icheck />
+												<input type="radio" value="F" name="radio_sexo" id="radio_femenino" data-md-icheck />
 												<label for="radio_femenino" class="inline-label">Femenino</label>
 											</span>
 											
@@ -82,23 +88,29 @@
 
 										<div class="uk-form-row">
                                             <label for="deporteFavorito">Deporte Favorito</label>
-                                            <select id="deporteFavorito" class="md-input" required>
+                                            <select id="deporteFavorito"  name="deporteFavorito" class="md-input" required>
                                 				<option value="" disabled="" selected="" hidden="">Seleccione un deporte</option>
-												<option value="a1">Item A1</option>
-												<option value="b1">Item B1</option>
-												<option value="c1">Item C1</option>
+												<?php 
+
+                                                    foreach($arrayDeportes as $row) { 
+                                                    echo '<option value="'.$row['codigo'].'">'.$row['deporteName'].'</option>';
+                                                    }
+                                                ?>
                                
                            					</select>
 										</div>
 										
 										<div class="uk-form-row">
 											<label for="marcaFavorita">Marca Favorito</label>
-											<select id="marcaFavorita" class="md-input" required>
+											<select id="marcaFavorita" name="marcaFavorita" class="md-input" required>
 												<option value="" disabled="" selected="" hidden="">Seleccione una marca</option>
-												<option value="a1">Item A1</option>
-												<option value="b1">Item B1</option>
-												<option value="c1">Item C1</option>
-							
+                                                <?php 
+
+                                                    foreach($arrayMarcasDeportivas as $row) { 
+                                                    echo '<option value="'.$row['codigo'].'">'.$row['marcaName'].'</option>';
+                                                    }
+                                                ?>
+                                                
 											</select>
                                         </div>
                                        
@@ -121,14 +133,14 @@
     </div>
 
     <!-- common functions -->
-    <script src="assets/js/common.min.js"></script>
+    <script src="assets/js/common.js"></script>
     <!-- uikit functions -->
-    <script src="assets/js/uikit_custom.min.js"></script>
+    <script src="assets/js/uikit_custom.js"></script>
     <!-- altair core functions -->
-    <script src="assets/js/altair_admin_common.min.js"></script>
+    <script src="assets/js/altair_admin_common.js"></script>
 
     <!-- altair login page functions -->
-    <script src="assets/js/pages/login.min.js"></script>
+    <script src="assets/js/pages/login.js"></script>
 
 
 </body>
