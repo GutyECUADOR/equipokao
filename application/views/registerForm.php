@@ -47,25 +47,25 @@
                                     <div class="login_heading">
                                        <h3 class="center-text">Registro #equipoKAO<h3>
                                     </div>
-                                    <?php echo form_open('registro/saveData'); ?>
+                                    <?php echo form_open('registro/register', array('id' => 'registerForm', 'autocomplete' => 'off')); ?>
                                         <div class="uk-form-row">
                                             <label for="nombres">Nombres</label>
-                                            <input class="md-input" type="text" id="nombres" name="nombres"/>
+                                            <input class="md-input label-fixed" type="text" id="nombres" name="nombres" required/>
 										</div>
 
 										<div class="uk-form-row">
                                             <label for="apellidos">Apellidos</label>
-                                            <input class="md-input" type="text" id="apellidos" name="apellidos" required/>
+                                            <input class="md-input label-fixed" type="text" id="apellidos" name="apellidos" required/>
                                         </div>
 
                                         <div class="uk-form-row">
                                             <label for="celular">Celular</label>
-                                            <input class="md-input" type="text" id="celular" name="celular" required/>
-                                        </div>
+                                            <input class="md-input label-fixed" type="text" id="celular" name="celular" required/>
+                                       </div>
 										
 										<div class="uk-form-row">
                                             <label for="email">Email</label>
-                                            <input class="md-input" type="email" id="email" name="email" required/>
+                                            <input class="md-input label-fixed" type="email" id="email" name="email" required/>
 										</div>
 
 										<div class="uk-form-row">
@@ -138,6 +138,9 @@
     <script src="<?php echo base_url('assets/js/uikit_custom.js')?>"></script>
     <!-- altair core functions -->
     <script src="<?php echo base_url('assets/js/altair_admin_common.js')?>"></script>
+
+     <!-- kendo UI -->
+     <script src="<?php echo base_url('assets/js/kendoui_custom.min.js')?>"></script>
 
     <!-- altair login page functions -->
     <script src="<?php echo base_url('assets/js/pages/login.js')?>"></script>

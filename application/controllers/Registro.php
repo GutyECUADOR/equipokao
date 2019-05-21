@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Registro extends CI_Controller {
 
+    
 	public function __constructor() {
 		parent::__contructor();
 		$this->load->database();
@@ -15,7 +16,8 @@ class Registro extends CI_Controller {
 		$this->load->view('registerForm', compact('arrayDeportes','arrayMarcasDeportivas'));
 	}
 
-	public function saveData() {
+
+	public function register() {
 		// If you have post data...
         if (!empty($_POST)) {
             $nombres = $this->input->post('nombres');
@@ -42,14 +44,19 @@ class Registro extends CI_Controller {
                     'marcaDepFavorita' => $marcaFavorita,
                 );
 
-                // Calling model
-                $id = $this->usuarios_Model->insert($data);
+              
+                if ($this->usuarios_Model->insert($data)) {
+                    $response = array('message' => 'Registro exitoso, Bienvenido al #equipoKAO');
+                    
+                }else{
+                    $response = array('message' => 'Pruebas de inicio listas');
+                }
             }
         }
-       
-       /*  $this->load->view('registerForm'); */
-       redirect('/registro', 'refresh');
-	}
+        echo json_encode($response);
+    }
+    
+    
 
 	function getAllDeportes() {
 		$this->load->database();
