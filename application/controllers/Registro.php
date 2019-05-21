@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Registro extends CI_Controller {
 
 	public function __constructor() {
 		parent::__contructor();
@@ -12,7 +12,7 @@ class Welcome extends CI_Controller {
 	public function index(){
 		$arrayDeportes = $this->getAllDeportes();
 		$arrayMarcasDeportivas = $this->getAllMarcasDeportivas();
-		$this->load->view('register_equipo_kao', compact('arrayDeportes','arrayMarcasDeportivas'));
+		$this->load->view('registerForm', compact('arrayDeportes','arrayMarcasDeportivas'));
 	}
 
 	public function saveData() {
@@ -47,8 +47,8 @@ class Welcome extends CI_Controller {
             }
         }
        
-        redirect('welcome/index');
-       
+       /*  $this->load->view('registerForm'); */
+       redirect('/registro', 'refresh');
 	}
 
 	function getAllDeportes() {

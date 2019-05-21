@@ -1,4 +1,9 @@
 /* login page */
+
+.backgrounBanner {
+  background-image: url('../img/background.jpg');
+}
+
 /* animations */
 [class*="uk-animation-"] {
   -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
