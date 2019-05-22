@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="assets/img/favicon-32x32.png" sizes="32x32">
 
-    <title>Unete al equipo KAO</title>
+    <title>Equipo KAO</title>
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
 
@@ -35,7 +35,7 @@
                         <div class="login_page_info uk-height-1-1 backgrounBanner" >
                             <div class="info_content">
                                 <h1 class="heading_b"></h1>
-                                El equipo KAO es Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut culpa cumque eaque earum error esse exercitationem fuga, fugiat harum perferendis praesentium quasi qui, repellendus sapiente, suscipit totam! Eaque, excepturi!
+                                El equipo KAO es ...
                                
                             </div>
                         </div>
@@ -60,12 +60,12 @@
 
                                         <div class="uk-form-row">
                                             <label for="celular">Celular</label>
-                                            <input class="md-input label-fixed" type="text" id="celular" name="celular" required/>
+                                            <input class="md-input label-fixed" type="text" id="celular" name="celular" placeholder='099XXXXXXX' required/>
                                        </div>
 										
 										<div class="uk-form-row">
                                             <label for="email">Email</label>
-                                            <input class="md-input label-fixed" type="email" id="email" name="email" required/>
+                                            <input class="md-input label-fixed" type="email" id="email" name="email" placeholder='micorreo@correo.com' required/>
 										</div>
 
 										<div class="uk-form-row">

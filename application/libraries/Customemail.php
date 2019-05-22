@@ -1,6 +1,6 @@
 <?php
 
-class Phpmailer_library
+class Customemail
 {
     public function __construct()
     {
