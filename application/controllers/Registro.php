@@ -65,7 +65,7 @@ class Registro extends CI_Controller {
     
     
     private function sendEmail($email) {
-        $mail = $this->phpmailer_library->load();
+        $mail = $this->phpmailer->load();
 
         $pcID = php_uname('n'); // Obtiene el nombre del PC
         $correoCliente = $email;

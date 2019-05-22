@@ -1,6 +1,6 @@
 <?php
 
-class Phpmailer_library
+class Phpmailer
 {
     public function __construct()
     {
