@@ -11,18 +11,18 @@
     <!-- Remove Tap Highlight on Windows Phone IE -->
     <meta name="msapplication-tap-highlight" content="no"/>
 
-    <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon-16x16.png')?>" sizes="16x16">
-    <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon-32x32.png')?>" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="assets/img/favicon-32x32.png" sizes="32x32">
 
     <title>Unete al equipo KAO</title>
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
 
     <!-- uikit -->
-    <link rel="stylesheet" href="<?php echo base_url('bower_components/uikit/css/uikit.almost-flat.css')?>"/>
+    <link rel="stylesheet" href="bower_components/uikit/css/uikit.almost-flat.css"/>
 
     <!-- altair admin login page -->
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/login_page.css')?>" />
+    <link rel="stylesheet" href="assets/css/login_page.css" />
 
 </head>
 <body class="login_page login_page_v2">
@@ -133,17 +133,17 @@
     </div>
 
     <!-- common functions -->
-    <script src="<?php echo base_url('assets/js/common.js')?>"></script>
+    <script src="assets/js/common.js"></script>
     <!-- uikit functions -->
-    <script src="<?php echo base_url('assets/js/uikit_custom.js')?>"></script>
+    <script src="assets/js/uikit_custom.js"></script>
     <!-- altair core functions -->
-    <script src="<?php echo base_url('assets/js/altair_admin_common.js')?>"></script>
+    <script src="assets/js/altair_admin_common.js"></script>
 
      <!-- kendo UI -->
-     <script src="<?php echo base_url('assets/js/kendoui_custom.min.js')?>"></script>
+     <script src="assets/js/kendoui_custom.min.js"></script>
 
     <!-- altair login page functions -->
-    <script src="<?php echo base_url('assets/js/pages/login.js')?>"></script>
+    <script src="assets/js/pages/login.js"></script>
 
 
 </body>

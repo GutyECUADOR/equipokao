@@ -74,11 +74,11 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=localhost; dbname=equipoKAO; charset=utf8;',
+	'dsn'	=> 'mysql:host=localhost; dbname=kao_equipoKAO; charset=utf8;',
 	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'equipokao',
+	'username' => 'kao_equipoKAO',
+	'password' => 'kao_equipoKAO2019$',
+	'database' => 'kao_equipoKAO',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
