@@ -14,4 +14,21 @@ class Usuario extends CI_Model {
         return $idOfInsertedData = $this->db->insert_id();
     }
 
+
+    public function insertDetailsDeportes($data) {
+        // Inserting into your table
+        $this->db->insert('seleccionesdeportes', $data);
+        // Return the id of inserted row
+        return $idOfInsertedData = $this->db->insert_id();
+    }
+
+    public function insertDetailsMarcas($data) {
+        // Inserting into your table
+        $this->db->insert('seleccionesmarcas', $data);
+        // Return the id of inserted row
+        return $idOfInsertedData = $this->db->insert_id();
+    }
+
+   
+
 }

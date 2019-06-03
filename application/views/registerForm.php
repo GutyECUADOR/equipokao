@@ -18,8 +18,14 @@
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
 
+    
+    <!-- select2 -->
+    <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
     <!-- uikit -->
     <link rel="stylesheet" href="bower_components/uikit/css/uikit.almost-flat.css"/>
+
+    <!-- altair admin -->
+    <link rel="stylesheet" href="assets/css/main.min.css" media="all">
 
     <!-- altair admin login page -->
     <link rel="stylesheet" href="assets/css/login_page.css" />
@@ -86,37 +92,45 @@
 											
 										</div>
 
-										<div class="uk-form-row">
-                                            <label for="deporteFavorito">Deporte Favorito</label>
-                                            <select id="deporteFavorito"  name="deporteFavorito" class="md-input" required>
-                                				<option value="" disabled="" selected="" hidden="">Seleccione un deporte</option>
-												<?php 
-
+                                        <div class="uk-form-row" >
+                                            <label for="deporteFavorito">Deportes Favoritos</label>
+                                            <select id="deporteFavorito" name="deporteFavorito[]" class="uk-width-1-1" multiple data-md-select2 required>
+                                                   
+                                                <?php 
                                                     foreach($arrayDeportes as $row) { 
                                                     echo '<option value="'.$row['codigo'].'">'.$row['deporteName'].'</option>';
                                                     }
                                                 ?>
-                               
-                           					</select>
-										</div>
-										
-										<div class="uk-form-row">
-											<label for="marcaFavorita">Marca Favorito</label>
-											<select id="marcaFavorita" name="marcaFavorita" class="md-input" required>
-												<option value="" disabled="" selected="" hidden="">Seleccione una marca</option>
-                                                <?php 
+                                                   
+                                            </select>
+                                       
+                                        </div>
 
-                                                    foreach($arrayMarcasDeportivas as $row) { 
-                                                    echo '<option value="'.$row['codigo'].'">'.$row['marcaName'].'</option>';
-                                                    }
-                                                ?>
-                                                
-											</select>
+                                        <br/>
+                                        <label for="deporteFavorito">Marcas Favoritas</label>
+                                        <div class="uk-form-row">
+
+                                            <?php 
+
+                                                foreach($arrayMarcasDeportivas as $row) { 
+                                                    echo '
+                                                    <span class="icheck-inline">
+                                                        <input type="checkbox" name="marcasFavoritas[]" id="marcasFavoritas" value="'.$row['codigo'].'" data-md-icheck />
+                                                        <label class="inline-label">'.$row['marcaName'].'</label>
+                                                    </span>
+                                                        ';
+                                            }
+                                            ?>
+                                           
                                         </div>
                                        
                                         <div class="uk-margin-medium-top">
 											<button class="md-btn md-btn-primary md-btn-block" type="submit">Registrarme!</button>
                                         </div>
+
+                                        <!-- <div class="uk-margin-medium-top">
+											<button id="testButton" class="md-btn md-btn-danger md-btn-block" type="button">test</button>
+                                        </div> -->
                                         
                                         
                                     </form>
@@ -139,12 +153,16 @@
     <!-- altair core functions -->
     <script src="assets/js/altair_admin_common.js"></script>
 
-     <!-- kendo UI -->
-     <script src="assets/js/kendoui_custom.min.js"></script>
+    <!-- select2 -->
+    <script src="bower_components/select2/dist/js/select2.min.js"></script>
+
+    <!-- kendo UI -->
+    <script src="assets/js/kendoui_custom.min.js"></script>
 
     <!-- altair login page functions -->
     <script src="assets/js/pages/login.js"></script>
 
+    
 
 </body>
 </html>

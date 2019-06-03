@@ -33,7 +33,7 @@ class Registro extends CI_Controller {
             $fechaNacimiento = $this->input->post('fechaNacimiento');
             $radio_sexo = $this->input->post('radio_sexo');
             $deporteFavorito = $this->input->post('deporteFavorito');
-            $marcaFavorita = $this->input->post('marcaFavorita');
+            $marcaFavorita = $this->input->post('marcasFavoritas');
 
             // Checking if everything is there
             if ($nombres && $apellidos && $celular && $email ) {
@@ -45,14 +45,40 @@ class Registro extends CI_Controller {
                     'celular' => $celular,
                     'email' => $email,
                     'fechaNacimiento' => $fechaNacimiento,
-                    'genero' => $radio_sexo,
-                    'deporteFavorito' => $deporteFavorito,
-                    'marcaDepFavorita' => $marcaFavorita,
+                    'genero' => $radio_sexo
                 );
+                
 
-                if ($this->usuario->insert($data)) {
+                if ($ID = $this->usuario->insert($data)) {
+
                     $statusEmail = $this->sendEmail($data['email']);
+
+                    if (!empty($deporteFavorito)) {
+
+                        foreach ($deporteFavorito as $row) {
+                            $data = array(
+                                'id' => $ID,
+                                'codigo' => $row,
+                            );
+                            
+                            $this->usuario->insertDetailsDeportes($data);
+                        }
+                    }
+
+                    if (!empty($marcaFavorita)) {
+                        foreach ($marcaFavorita as $row) {
+                            $data = array(
+                                'id' => $ID,
+                                'codigo' => $row,
+                            );
+                            
+                            $this->usuario->insertDetailsMarcas($data);
+                        }
+                    }
+                    
+
                     $response = array('message'     => 'Registro exitoso, Bienvenido al #equipoKAO', 
+                                      'ID' => $ID,
                                       'statusEmail' => $statusEmail);
                     
                 }else{

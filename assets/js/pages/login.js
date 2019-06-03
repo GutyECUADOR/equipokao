@@ -1,7 +1,11 @@
 $(function() {
 
     let registerForm = $('#registerForm');
+    let inputPhone = $('#celular');
+    let s
+
     registerForm.submit(function (event) {
+       
         event.preventDefault();
        
         UIkit.modal.confirm('Nos contactaremos contigo gracias a los datos que has ingresado. Deseas finalizar tu registro? ', function() {
@@ -32,12 +36,22 @@ $(function() {
         },  {labels: {'Ok': 'Si, registrame', 'Cancel': 'Cancelar'}});
     })
     
-    let inputPhone = $('#celular');
+    
     if(inputPhone.length) {
         inputPhone.kendoMaskedTextBox({
             mask: "(999) 000-0000"
         });
     }
+
+    $("#deporteFavorito").select2({
+        placeholder: "Seleccione al menos 1 deporte",
+        allowClear: true
+    });
+
+    $("#testButton").click(function() {
+        let data = registerForm.serialize();
+        console.log(data);
+      });
 
 
 });
